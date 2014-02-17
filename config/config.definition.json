@@ -1,0 +1,7 @@
+{
+    "buildPath":  "path to store JUnit XML file, and screenshot of webpage when error occurs",
+    "configPath": "NFluentJS configuration file path",
+    "help": "Display all commands",
+    "engine": "Select the current engine [phantomjs|slimerjs]",
+    "selftest": "Launch NFluentJS selftest"
+}
