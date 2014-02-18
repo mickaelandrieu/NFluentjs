@@ -12,13 +12,15 @@ before_install:
   - cd casperjs
   - git checkout tags/1.1-beta1
   - cd ..
-  - git clone git://github.com/mickaelandrieu/NFluentjs.git
   - export PATH=$(pwd)/casperjs/bin/:$PATH
-  - export PATH=$(pwd)/nfluentjs/bin/:$PATH
+  - echo "installing NFluentJS 0.0.1-DEV"
+  - git clone git://github.com/mickaelandrieu/NFluentjs
+  - export PATH=$(pwd)/NFluentjs/bin/:$PATH
 
 before_script:
   - phantomjs --version
   - casperjs --version
+  - nfluentjs --version
 
 script:
   - nfluentjs --selftest

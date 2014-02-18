@@ -31,7 +31,8 @@
         fs       = require('fs'),
         sys      = require('system'),
         libPath  = fs.absolute('../modules/'),
-        testPath = fs.absolute('../tests/');
+        testPath = fs.absolute('../tests/')
+        version  = '0.0.1-DEV';
 
     // Phantom JS Setup
     phantom.casperPath = sys.env['CASPERJS_PATH'];
@@ -49,6 +50,11 @@
         cli           = require(libPath + 'Cli')(fs.absolute('.') + './../config/config.definition.json', nfluent, vigoUtils),
         sequence      = require(libPath + 'Sequence')(fs);
 
+    if (nfluent.cli.has('version')) {
+        nfluent.echo(version);
+        nfluent.exit();
+        return;
+    }
     if (nfluent.cli.has('selftest')) {
         cli.setTestPath(testPath);
     } else {
