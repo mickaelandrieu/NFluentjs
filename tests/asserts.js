@@ -6,13 +6,23 @@ var CheckThatTests = function(nfluentInstance){
 
 
 CheckThatTests.prototype.launchTest = function launchTest() {
+    /* prepare all datas for the tests */
     var string = new String('NFluentjs');
+    function Rui() {
+        this.sayHi = function sayHi() {
+            return 'hi !';
+        };
+    }
+    var rui = new Rui();
+
     this.Check.That(string).IsInstanceOf(String);
+    this.Check.That(rui).IsInstanceOf(Rui);
+    this.Check.That([1, 2]).IsInstanceOf(Array);
 };
 
 CheckThatTests.prototype.getUrl = function getUrl() {
     return false;
-} 
+}
 
 CheckThatTests.prototype.setTest = function setTest(testerInstance) {
     this.test = testerInstance;

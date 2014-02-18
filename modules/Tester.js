@@ -1,5 +1,5 @@
 /**
- * From VigoJS 
+ * From VigoJS
  * https://github.com/M6Web/VigoJS
  *
  */
@@ -7,6 +7,7 @@
     "use strict";
 
     var Tester = function (casper, utils) {
+        var f = utils.format;
         var self = this;
         Tester._super.constructor.call(this, casper);
 
@@ -16,7 +17,7 @@
         this.assert =
         this.assertTrue = function assert(subject, message, context) {
             context = context || {};
-            
+
             if ((typeof context.success === 'undefined' && subject !== true) || (typeof context.success !== 'undefined' && !context.success)){
                 try {
                     this.i.dont.exist += 0; // doesn't exist - that's the point
@@ -29,7 +30,7 @@
                     }
                 }
             }
-            
+
             return Tester._super.assert.call(this, subject, message, context);
         };
 
@@ -40,7 +41,7 @@
         };
 
         this.IsInstanceOf = function IsInstanceOf(instance) {
-            this.assertTrue(this.input instanceof instance, "Subject has the good Instance");
+            this.assertTrue(this.input instanceof instance, f("%s is instance of %s", this.input, instance.name));
         };
     };
 
