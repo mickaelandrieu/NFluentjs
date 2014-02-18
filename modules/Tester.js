@@ -40,13 +40,31 @@
             return self;
         };
 
+        this.contains = function contains(values, array) {
+            for(var i =0; i < values.length; i++) {
+                if (array.indexOf(values[i]) == -1) {
+                    return false;
+                }
+            }
+
+            return true;
+        };
+
         this.IsInstanceOf = function IsInstanceOf(instance) {
             this.assertTrue(this.input instanceof instance, f("%s is instance of %s", this.input, instance.name));
         };
 
         this.IsNotInstanceOf = function IsNotInstanceOf(instance) {
             this.assertFalse(this.input instanceof instance, f("%s is not instance of %s", this.input, instance.name));
-        }
+        };
+
+        this.Contains = function Contains(values) {
+            this.assertTrue(this.contains(values,this.input) === true, f("%s contains %s values", this.input, values));
+        };
+
+        this.NotContains = function NotContains(values) {
+            this.assertFalse(this.contains(values,this.input) === true, f("%s doesn't contains %s values", this.input, values));
+        };
     };
 
     exports.create = function (libPath, testerClass, casper, utils) {

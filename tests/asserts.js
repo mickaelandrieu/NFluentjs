@@ -14,6 +14,7 @@ CheckThatTests.prototype.launchTest = function launchTest() {
         };
     }
     var rui = new Rui();
+    var integers = [1, 2, 3, 4, 5, 6];
 
     this.Check.That(string).IsInstanceOf(String);
     this.Check.That(rui).IsInstanceOf(Rui);
@@ -21,6 +22,9 @@ CheckThatTests.prototype.launchTest = function launchTest() {
 
     this.Check.That(rui).IsNotInstanceOf(String);
     this.Check.That([1, 2, 3]).IsNotInstanceOf(Rui);
+
+    this.Check.That(integers).Contains([1, 2, 6]);
+    this.Check.That(integers).NotContains([1, 2, 9]);
 };
 
 CheckThatTests.prototype.getUrl = function getUrl() {
