@@ -13,6 +13,7 @@ before_install:
   - git checkout tags/1.1-beta1
   - cd ..
   - export PATH=$(pwd)/casperjs/bin/:$PATH
+  - export PATH=$(pwd)/nfluentjs/bin/:$PATH
 
 before_script:
   - phantomjs --version
