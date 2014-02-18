@@ -18,6 +18,9 @@ CheckThatTests.prototype.launchTest = function launchTest() {
     this.Check.That(string).IsInstanceOf(String);
     this.Check.That(rui).IsInstanceOf(Rui);
     this.Check.That([1, 2]).IsInstanceOf(Array);
+
+    this.Check.That(rui).IsNotInstanceOf(String);
+    this.Check.That([1, 2, 3]).IsNotInstanceOf(Rui);
 };
 
 CheckThatTests.prototype.getUrl = function getUrl() {

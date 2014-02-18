@@ -43,6 +43,10 @@
         this.IsInstanceOf = function IsInstanceOf(instance) {
             this.assertTrue(this.input instanceof instance, f("%s is instance of %s", this.input, instance.name));
         };
+
+        this.IsNotInstanceOf = function IsNotInstanceOf(instance) {
+            this.assertFalse(this.input instanceof instance, f("%s is not instance of %s", this.input, instance.name));
+        }
     };
 
     exports.create = function (libPath, testerClass, casper, utils) {
