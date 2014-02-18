@@ -3,6 +3,10 @@
 >**Important note:** the `master` branch is still on WIP. You should never ever think to use NFluentjs
 in production
 >
+>[Travis-CI](http://travis-ci.org/mickaelandrieu/NFluentjs) build status:
+>
+>- ![Build Status](https://travis-ci.org/mickaelandrieu/NFluentjs.png?branch=master) `master` branch
+>- tests have to be run manually using the `nfluentjs --selftest` command
 
 NFluentJS is a CLI-tool based on [CasperJS](http://www.casperjs.org/)
 and [VigoJS](http://slimerjs.org/).
