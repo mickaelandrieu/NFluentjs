@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Nfluentjs by mickaelandrieu</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/mickaelandrieu/NFluentjs">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/mickaelandrieu/NFluentjs/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/mickaelandrieu/NFluentjs/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>Nfluentjs</h1>
+          <p>TDD library inspired by NFluent. Based on phantomjs, casperjs and Vigojs</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/mickaelandrieu">mickaelandrieu</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+        </div>
+
+        <h1>
+<a name="nfluentjs" class="anchor" href="#nfluentjs"><span class="octicon octicon-link"></span></a>NFluentJS</h1>
+
+<blockquote>
+<p><strong>Important note:</strong> the <code>master</code> branch is still on WIP. You should never ever think to use NFluentjs
+in production</p>
+
+<p><a href="http://travis-ci.org/mickaelandrieu/NFluentjs">Travis-CI</a> build status:</p>
+
+<ul>
+<li>
+<img src="https://travis-ci.org/mickaelandrieu/NFluentjs.png?branch=master" alt="Build Status"><code>master</code> branch</li>
+<li>tests have to be run manually using the <code>nfluentjs --selftest</code> command</li>
+</ul>
+</blockquote>
+
+<p>NFluentJS is a CLI-tool based on <a href="http://www.casperjs.org/">CasperJS</a>
+and <a href="http://slimerjs.org/">VigoJS</a>.</p>
+
+<p>It aims to provide some beautiful TDD assertions in Javascript for unit and fonctional testing.</p>
+
+<h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>First <a href="http://docs.casperjs.org/en/latest/installation.html">install CasperJS</a>, we'll use 1.1 beta-3 here
+and his dependencies (at this point, only <a href="http://www.phantomjs.org/">PhantomJS</a> is required)</p>
+
+<p>For now, we have only one way to install NFluentjs.</p>
+
+<h3>
+<a name="from-the-master-branch" class="anchor" href="#from-the-master-branch"><span class="octicon octicon-link"></span></a> From the master branch</h3>
+
+<pre lang="shell"><code>    $ git clone git://github.com/mickaelandrieu/NFluentjs.git
+    $ cd NFluentjs
+    $ ln -sf `pwd`/bin/nfluentjs /usr/local/bin/nfluentjs
+</code></pre>
+
+<p>Once PhantomJS and CasperJS installed on your machine, you should obtain something like this:</p>
+
+<pre lang="shell"><code>    $ phantomjs --version
+    1.9.2
+    $ casperjs
+    CasperJS version 1.1.0-DEV at /Users/niko/Sites/casperjs, using phantomjs version 1.9.2
+    # ...
+    $ nfluentjs
+    NFluentjs version 0.0.1-DEV
+</code></pre>
+
+<h3>
+<a name="how-it-works-" class="anchor" href="#how-it-works-"><span class="octicon octicon-link"></span></a>How it works ?</h3>
+
+<div class="highlight highlight-javascript"><pre><span class="cm">/* For more complete samples, see the VigoJs documentation and use cases */</span>
+
+<span class="kd">var</span> <span class="nx">DummyTest</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">nfluentInstance</span><span class="p">){</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">title</span> <span class="o">=</span> <span class="s1">'This is a Dummy Test'</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">description</span> <span class="o">=</span> <span class="s1">'This is a Dummy description'</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">Check</span> <span class="o">=</span> <span class="nx">nfluentInstance</span><span class="p">.</span><span class="nx">test</span><span class="p">;</span>
+<span class="p">};</span>
+
+
+<span class="nx">DummyTest</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">launchTest</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">launchTest</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">string</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">String</span><span class="p">(</span><span class="s1">'lol'</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">Check</span><span class="p">.</span><span class="nx">That</span><span class="p">(</span><span class="nx">string</span><span class="p">).</span><span class="nx">IsInstanceOf</span><span class="p">(</span><span class="nb">String</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="nx">DummyTest</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">getUrl</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">getUrl</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">}</span> 
+
+<span class="nx">DummyTest</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">setTest</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">setTest</span><span class="p">(</span><span class="nx">testerInstance</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">test</span> <span class="o">=</span> <span class="nx">testerInstance</span><span class="p">;</span>
+
+    <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">exports</span><span class="p">.</span><span class="nx">create</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">create</span><span class="p">(</span><span class="nx">nfluentInstance</span><span class="p">,</span> <span class="nx">config</span><span class="p">,</span> <span class="nx">properties</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nx">DummyTest</span><span class="p">(</span><span class="nx">nfluentInstance</span><span class="p">,</span> <span class="nx">config</span><span class="p">,</span> <span class="nx">properties</span><span class="p">);</span>
+<span class="p">};</span>
+</pre></div>
+
+<h2>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>MIT</p>
+      </section>
+
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
