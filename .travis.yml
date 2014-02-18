@@ -19,4 +19,4 @@ before_script:
   - casperjs --version
 
 script:
-  - nfluentjs selftest
+  - nfluentjs --selftest
