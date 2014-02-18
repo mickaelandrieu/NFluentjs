@@ -31,7 +31,7 @@
         fs       = require('fs'),
         sys      = require('system'),
         libPath  = fs.absolute('../modules/'),
-        testPath = fs.absolute('../tests/')
+        testPath = fs.absolute('../tests/'),
         version  = '0.0.1-DEV';
 
     // Phantom JS Setup
