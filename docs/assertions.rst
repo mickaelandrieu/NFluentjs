@@ -6,8 +6,8 @@ Unit Testing
 ------------
 
 Imagine we want to make a very simple user management application:
-* An user have a firstname, a lastname and a service
-* Each service have a name
+- An user have a firstname, a lastname and a service
+- Each service have a name
 
 The source code could be::
 
@@ -15,7 +15,7 @@ The source code could be::
         this.ID = Math.random().toString(36).substring(7);
         this.firstname = firstname;
         this.lastname = lastname;
-        this.service = service;
+        this.group = group;
     
         this.moveTo = function moveTo(service) {
             this.service = service;
@@ -25,11 +25,11 @@ The source code could be::
         }
     };
 
-    function Service = function(name, boss) {
-        this.name = name;
+    function Group = function(name) {
+        this.groupName = name;
     };
     
-    var it = new Service('IT');
+    var it = new Group('IT');
     var mickael = new User('Mickaël', 'Andrieu', it);
     var rui = new User('Rui', 'Carvalho', it);
 
@@ -46,12 +46,12 @@ our objects. Let's write the minimal script to test theses entities::
     
     
     UserTest.prototype.launchTest = function launchTest() {
-        var it = new Service('IT');
+        var it = new Group('IT');
         var mickael = new User('Mickaël', 'Andrieu', it);
         var rui = new User('Rui', 'Carvalho', it);
     
         /* A minimal test */
-        this.Check.That(it).EqualsTo(mickael.service);
+        this.Check.That(it).EqualsTo(mickael.group);
     };
     
     UserTest.prototype.getUrl = function getUrl() {
@@ -70,9 +70,9 @@ our objects. Let's write the minimal script to test theses entities::
 
 
 You need at least to implement three functions needed by NFluentjs to deal with your class.
-* launchTest: you will write all your assertions here.
-* setTest: needed by nfluent, will be directly moved on AbstractTester class in 0.0.2.
-* getUrl: you don't need an url when you unit test this class, but It can be useful for
+- launchTest: you will write all your assertions here.
+- setTest: needed by nfluent, will be directly moved on AbstractTester class in 0.0.2.
+- getUrl: you don't need an url when you unit test this class, but It can be useful for
 functional tests
 
 Now, let's write a first test::
