@@ -37,8 +37,10 @@
         this.That = function That(value) {
             this.input = value;
 
-            return self;
+            return this;
         };
+
+        this.And = this;
 
         this.contains = function contains(values, array) {
             for(var i =0; i < values.length; i++) {
@@ -52,18 +54,34 @@
 
         this.IsInstanceOf = function IsInstanceOf(instance) {
             this.assertTrue(this.input instanceof instance, f("%s is instance of %s", this.input, instance.name));
+
+            return this;
         };
 
         this.IsNotInstanceOf = function IsNotInstanceOf(instance) {
             this.assertFalse(this.input instanceof instance, f("%s is not instance of %s", this.input, instance.name));
+
+            return this;
         };
 
         this.Contains = function Contains(values) {
             this.assertTrue(this.contains(values,this.input) === true, f("%s contains %s values", this.input, values));
+
+            return this;
         };
 
         this.NotContains = function NotContains(values) {
             this.assertFalse(this.contains(values,this.input) === true, f("%s doesn't contains %s values", this.input, values));
+
+            return this;
+        };
+
+        this.EqualsTo = function EqualsTo(value) {
+            this.assertTrue(this.input === value, f("%s is equals to %s values", this.input, value));
+        };
+
+        this.NotEqualsTo = function NotEqualsTo(value) {
+            this.assertFalse(this.input === value, f("%s is not equals to %s values", this.input, value));
         };
     };
 
