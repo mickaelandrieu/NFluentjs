@@ -6,6 +6,7 @@ Unit Testing
 ------------
 
 Imagine we want to make a very simple user management application:
+
 - An user have a firstname, a lastname and a service
 - Each service have a name
 
@@ -70,6 +71,7 @@ our objects. Let's write the minimal script to test theses entities::
 
 
 You need at least to implement three functions needed by NFluentjs to deal with your class.
+
 - launchTest: you will write all your assertions here.
 - setTest: needed by nfluent, will be directly moved on AbstractTester class in 0.0.2.
 - getUrl: you don't need an url when you unit test this class, but It can be useful for
