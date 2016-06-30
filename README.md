@@ -1,5 +1,7 @@
 # NFluentJS
 
+> **THIS PACKAGE IS NOT MAINTAINED ANYMORE, FORK IT IF YOU NEED IT**
+
 >**Important note:** the `master` branch is still on WIP. You should never ever think to use NFluentjs
 in production
 >
